@@ -1,15 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import "./index.css";
+
+function Room()
+{
+  let [isLit,setLit]=React.useState(true);
+  let[roomtemp,setroomtemp]=React.useState(72);
+  
+return(
+  <div className={`room ${isLit? "lit": "dark"}`}>
+    A PROJECT BY IMRAN RAZA
+    <br/><br/><br/>
+    the room is {isLit? "Lit":"dark"}
+    <br/>
+  <br/>
+  the temperature is {roomtemp}
+  <br/>
+  <button onClick={() => setLit(!isLit)}>flip</button>
+  <br/><br/>
+  <button onClick={() => setLit(true)}>On</button>
+  <button onClick={() => setLit(false)}>Off</button>
+  <br/><br/>
+  <button onClick={() => setroomtemp(++roomtemp)}>+</button>
+  <button onClick={() => setroomtemp(--roomtemp)}>-</button>
+  </div>
+)
+}
 
 ReactDOM.render(
-  <App name="Imran Raza" age="39"/>,
+  <Room/>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
